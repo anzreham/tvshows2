@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style0.css' %}">    
+    <script src="{% static 'js/script.js' %}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script>
+        function goBack() {
+          window.history.back()
+        }
+        </script>
+</head>
+<body>
+
+
+
+
+<!-- Just an image -->
+<nav class="navbar navbar-light bg-success">
+    <button onclick="goBack()" class="btn btn-outline-dark">Go Back</button>
+</nav>
+   
+
+<div class = "container1">
+
+    <form action="/shows/create" method="post">
+        {% csrf_token %}
+        <div class="container">
+          <h3>Add a new Show </h3>
+          <input type="text" placeholder= {{objs.title}} name="title" id="" required>
+          <input type="text" placeholder={{objs.network}} name="network" id="" required>
+          <input type="hidden" name="which_form" value="">
+          <label for="RelaseDate"> <h3> Relase Date:</h3></label>
+          <input type="date" id="date" name="date"  required >
+         
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1"> <h3> Add Description</h3></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"  placeholder={{objs.desc}}></textarea>
+          </div>
+
+          <button type="submit" class="registerbtn bg-success">update</button>
+        </div>
+      </form>
+      <a class="btn btn-outline-success" href="/shows" role="button"> Go to  show</a>
+ 
+</div>
+
+
+
+
+</body>
+</html>
